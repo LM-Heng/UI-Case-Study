@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<HTML>
+	<HEAD>
+		<link rel="stylesheet" href="style.css">
+		<TITLE>
+			ONLINE SALES MANAGAMENT SYSTEM
+		</TITLE>
+	</HEAD>
+<SCRIPT>
+function formValid()
+{	
+	var nosubmit = 0;
+	var pname=document.getElementById("pname").value;
+	var rcategory=document.getElementById("category").value;
+	var rprice=document.getElementById("price").value;
+	var rtotal=document.getElementById("total").value;
+	var rdesc = document.getElementById("desc").value
+	document.getElementById("err1").innerHTML="";
+	document.getElementById("err2").innerHTML="";
+	document.getElementById("err3").innerHTML="";
+	document.getElementById("err4").innerHTML="";
+	document.getElementById("err5").innerHTML="";
+	document.getElementById("err6").innerHTML="";	
+		if(pname.trim().length==0) 
+		{
+			document.getElementById("err1").innerHTML="Please enter in product name.";
+			nosubmit++;
+		} 
+		else if(pname.trim().length < 5 || pname.trim().length > 15)
+		{
+			document.getElementById("err1").innerHTML="Product name can be only be between 5 to 15 characters.";
+			nosubmit++;
+		}
+		if(rdesc.value == '') 
+		{	
+			document.getElementById("err2").innerHTML="Please enter in description.";
+			nosubmit++;
+		}
+		else if(rdesc.length < 10 || rdesc.length > 50)
+		{
+			document.getElementById("err2").innerHTML="Product description can be only be between 10 to 50 characters.";
+			nosubmit++;
+		}
+		if(rcategory.trim().length==0) 
+		{
+			document.getElementById("err3").innerHTML="Please choose a category.";
+			nosubmit++;
+		}
+		if(!rprice) 
+		{
+			document.getElementById("err4").innerHTML="Please enter in price/quantity.";
+			nosubmit++;
+		} 	
+		else if (rprice<0)
+		{
+			document.getElementById("err4").innerHTML="Please enter in a positive number.";
+			nosubmit++;
+		}
+		if(!rtotal) 
+		{
+			document.getElementById("err5").innerHTML="Please enter in total quantity.";
+			nosubmit++;
+		} 
+		else if(rtotal<0)
+		{
+			document.getElementById("err5").innerHTML="Please enter in a positive number.";
+			nosubmit++;
+		}
+		if(document.getElementById("open").checked == false && document.getElementById("close").checked == false) 
+		{
+			document.getElementById("err6").innerHTML="Please indicate status.";
+			nosubmit++;
+		}
+		if(nosubmit == 0) 
+		{
+			window.location = "Request Success.html"
+		}
+}
+
+function resetForm()
+{
+	document.getElementById("err1").innerHTML="";
+	document.getElementById("err2").innerHTML="";
+	document.getElementById("err3").innerHTML="";
+	document.getElementById("err4").innerHTML="";
+	document.getElementById("err5").innerHTML="";
+	document.getElementById("err6").innerHTML="";	
+	document.forms["productform"].reset();
+}
+
+</SCRIPT>
+	<BODY>
+		<TABLE align="center" width="100%" border="0">
+		<TR>
+		<TD bgcolor="#45e423" align="center">
+		<FIGURE>
+		<IMG SRC="logo.png" height="100" width="100">
+		</FIGURE>
+		</TD>
+		<TD width="80%" bgcolor="#45e423" align="center">
+		<HEADER><H1>SPEC- ONLINE SALES MANAGEMENT SYSTEM</H1></HEADER>
+		</TD>
+		</TR>
+		<TR>
+		<TD colspan="2" bgcolor="#ffe423" align="center">
+		<NAV>About Us | Contact Us | <a href="Query Form.html">Any Queries</a></NAV>
+		</TD>
+		</TR>
+		</TABLE>
+		<TABLE align="center" width="100%" border="0">
+		<TR>
+		<TD valign="top">
+		<ASIDE>
+			<ul><li><a href="Request Page.html">Add Product</a></li>
+				<li><a href="Product Report.html">Product Report</a></li>
+			</ul>
+		</ASIDE>
+		</TD>	
+		<TD width="75%">
+		<MAIN>
+		<ARTICLE>
+		<h4>Welcome Admin</h4>
+		<H2>Product Request</H2>
+		<SECTION>
+		<FORM id="productform">
+		<TABLE align="center" width="70%" border="0">
+		<TR>
+		<TD>Product Name:<FONT color="#FF0000">*</FONT></TD>
+		<TD><INPUT type="text" name="pname" id="pname"><br>
+		<span class="err" id="err1"></span></TD>		
+		</TR>
+		<TR>
+		<TD>Description<FONT color="#FF0000">*</FONT></TD>
+		<TD><textarea name="desc" id="desc"></textarea><br>
+		<span class="err" id="err2"></span></TD>
+		</TR>
+		<TR>
+		<TD>Category<FONT color="#FF0000">*</FONT></TD>
+		<TD>
+		<SELECT name="category" style="width:90%; height:30px" id="category">
+		<OPTION></OPTION>
+		<OPTION>Kids Apparel</OPTION>
+		<OPTION>Mens Apparel</OPTION>
+		<OPTION>Women's Apparel</OPTION>
+		<OPTION>Home Appliances</OPTION>
+		</SELECT><br>
+		<span class="err" id="err3"></span></TD>
+		</TR>
+		<TR>
+		<TD>Price/Quantity<FONT color="#FF0000">*</FONT></TD>
+		<TD><INPUT type="number" step="0.01" name="price" id="price">
+		<span class="err" id="err4"></span></TD>
+		</TR>
+		<TR>
+		<TD>Total Quantity<FONT color="#FF0000">*</FONT></TD>
+		<TD><INPUT type="number" name="total" id="total">
+		<span class="err" id="err5"></span></TD>
+		</TR>
+		<TR>
+		<TD>Status<FONT color="#FF0000">*</FONT></TD>
+		<TD><INPUT type="radio" name="status" value="open" id="open">Open <INPUT type="radio" name="status" value="close" id="close">Close<br>
+		<span class="err" id="err6"></span></TD>
+		</TR>
+		<TR>
+		<TD colspan="2" align="center"><br><INPUT type="button" id="submit" value="Submit" onclick="return(formValid());">
+		<INPUT type="reset" id="reset" value="Reset" onclick="resetForm();"><br>
+		<center><INPUT type="button" name="submit" value="Back" onclick="location.href='Front Page.html'"></center></TD>
+		</TR>
+		</TABLE>
+		</FORM>
+		</SECTION>
+		</ARTICLE>
+		</MAIN>
+		</TD>
+		</TR>
+		</TABLE>
+<TABLE width="100%" border="0">
+<TR>
+<TD colspan="2" align="center" bgcolor="#ffe4f4"><FOOTER><h5>&copy;2020 Heng Li Ming_1874538</FOOTER></TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

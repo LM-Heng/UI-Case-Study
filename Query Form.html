@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<HTML>
+	<HEAD>
+		<link rel="stylesheet" href="style.css">
+		<TITLE>
+			ONLINE SALES MANAGAMENT SYSTEM
+		</TITLE>
+	</HEAD>
+<SCRIPT>
+function queryValid()
+{	
+	var nosubmit = 0;
+	var qproblem=document.getElementById("qproblem").value;
+	var qemail=document.getElementById("email").value;
+	var qphone=document.getElementById("phone").value;
+	document.getElementById("err1").innerHTML="";
+	document.getElementById("err2").innerHTML="";
+	document.getElementById("err3").innerHTML="";
+		if(qproblem.trim().length==0) 
+		{
+			document.getElementById("err1").innerHTML="Please enter in your query.";
+			nosubmit++;
+		} 
+		else if(qproblem.length < 10 || qproblem > 50)
+		{
+			document.getElementById("err1").innerHTML="Query can only be from 10 to 50 characters.";
+			nosubmit++;
+		}
+		if(qemail.trim().length==0) 
+		{	
+			document.getElementById("err2").innerHTML="Please enter in your email.";
+			nosubmit++;
+		}
+		else if(/^[^@]+@[^@]{2,}\.[^@]{2,}$/.test(qemail) == false)
+		{
+			document.getElementById("err2").innerHTML="Please enter in a valid email address.";
+			nosubmit++;
+		}
+		if(qphone.length==0) 
+		{
+			document.getElementById("err3").innerHTML="Please enter in a phone number.";
+			nosubmit++;
+		}
+		else if(/(7|8|9)\d{9}$/.test(qphone)==false)
+		{
+			document.getElementById("err3").innerHTML="Please enter in a 10-digit phone number that starts with 7,8 or 9.";
+			nosubmit++;
+		}
+		if(nosubmit == 0) 
+		{
+			window.location="Query Success.html";
+		}
+}
+
+</SCRIPT>
+	<BODY>
+		<TABLE align="center" width="100%" border="0">
+		<TR>
+		<TD bgcolor="#45e423" align="center">
+		<FIGURE>
+		<IMG SRC="logo.png" height="100" width="100">
+		</FIGURE>
+		</TD>
+		<TD width="80%" bgcolor="#45e423" align="center">
+		<HEADER><H1>SPEC- ONLINE SALES MANAGEMENT SYSTEM</H1></HEADER>
+		</TD>
+		</TR>
+		<TR>
+		<TD colspan="2" bgcolor="#ffe423" align="center">
+		<NAV>About Us | Contact Us | <a href="Query Form.html">Any Queries</a></NAV>
+		</TD>
+		</TR>
+		</TABLE>
+		<TABLE align="center" width="100%" border="0">
+		<TR>
+		<TD valign="top">
+		<ASIDE>
+		<ul><li><a href="Request Page.html">Add Product</a></li>
+				<li><a href="Product Report.html">Product Report</a></li>
+		</ul>
+		</ASIDE>
+		</TD>	
+		<TD width="75%">
+		<MAIN>
+		<ARTICLE>
+		<h4>Welcome Admin</h4>
+		<SECTION>
+		<FORM id="queryform">
+		<TABLE align="center" width="70%" border="0">
+		<TR>
+		<TD>Write your Query/Problem here:<FONT color="#FF0000">*</FONT></TD>
+		<TD><textarea name="qproblem" id="qproblem"></textarea><br>
+		<span class="err" id="err1"></span></TD>
+		</TR>
+	<TR>
+		<TD>Email ID:<FONT color="#FF0000">*</FONT></TD>
+		<TD><INPUT type="email" name="email" id="email">
+		<span class="err" id="err2"></span></TD>
+	</TR>
+	<TR>
+		<TD>Phone Number:<FONT color="#FF0000">*</FONT></TD>
+		<TD><INPUT type="tel" name="phone" id="phone">
+		<span class="err" id="err3"></span></TD>
+	</TR>
+	<TR>
+		<TD colspan="2" align="center"><INPUT type="button" name="submit" value="Post the Query" onclick="return(queryValid());"></TD>
+	</TR>
+	<TR>
+		<TD colspan="2" align="center"><INPUT type="button" name="back" value="Back" onclick="location.href='Front Page.html'"></TD>
+	</TR>
+</TABLE>
+</FORM>
+		</SECTION>
+		</ARTICLE>
+		</MAIN>
+		</TD>
+		</TR>
+		</TABLE>
+<TABLE width="100%" border="0">
+<TR>
+<TD colspan="2" align="center" bgcolor="#ffe4f4"><FOOTER><h5>&copy;2020 Heng Li Ming_1874538</FOOTER></TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

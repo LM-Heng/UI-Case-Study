@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<HTML>
+	<HEAD>
+		<link rel="stylesheet" href="style.css">
+		<TITLE>
+			ONLINE SALES MANAGAMENT SYSTEM
+		</TITLE>
+	</HEAD>
+<SCRIPT>
+function checkLogin()
+{	
+	var nosubmit = 0;
+	var pusername=document.getElementById("username").value;
+	var rpassword=document.getElementById("password").value;
+	document.getElementById("err1").innerHTML="";
+	document.getElementById("err2").innerHTML="";
+		if(pusername.trim().length==0)
+		{
+			document.getElementById("err1").innerHTML="Please enter in username.";
+			nosubmit++;
+		}
+		else if(pusername!="Test") 
+		{
+			document.getElementById("err1").innerHTML="Please enter in the correct username.";
+			nosubmit++;
+		} 
+		if(rpassword.trim().length==0)
+		{
+			document.getElementById("err2").innerHTML="Please enter in password.";
+			nosubmit++;
+		} 
+		else if(rpassword!="Test") 
+		{	
+			document.getElementById("err2").innerHTML="Please enter in the correct password.";
+			nosubmit++;
+		}
+		if(nosubmit == 0) 
+		{
+			alert('Login successful!');
+			window.location="Front Page.html";
+		}
+}
+</SCRIPT>
+	<BODY>
+		<TABLE align="center" width="100%" border="0">
+		<TR>
+		<TD bgcolor="#45e423" align="center">
+		<FIGURE>
+		<IMG SRC="logo.png" height="100" width="100">
+		</FIGURE>
+		</TD>
+		<TD width="80%" bgcolor="#45e423" align="center">
+		<HEADER><H1>SPEC- ONLINE SALES MANAGEMENT SYSTEM</H1></HEADER>
+		</TD>
+		</TR>
+		<TR>
+		<TD colspan="2" bgcolor="#ffe423" align="center">
+		<NAV>About Us | Contact Us | <a href="">Any Queries</a></NAV>
+		</TD>
+		</TR>
+		</TABLE>
+		<TABLE align="center" width="100%" border="0">
+		<TD width="75%">
+		<MAIN>
+		<ARTICLE>
+		<SECTION>
+		<div id = "container">
+		<FORM>
+		<div class="container">
+		<center><INPUT type="text" name="login" placeholder = "username" id="username"></center>
+		<center><span class="err" id="err1"></span></center>
+		<center><INPUT type="text" name="password" placeholder = "password" id="password"></center>
+		<center><span class="err" id="err2"></span></center>
+		<center><INPUT type="button" name="Login" value="Login" onclick="return(checkLogin());"></center>
+		</div>
+		</FORM>
+		</div>
+		</SECTION>
+		</ARTICLE>
+		</MAIN>
+		</TD>
+		</TR>
+		</TABLE>
+<TABLE width="100%" border="0">
+<TR>
+<TD colspan="2" align="center" bgcolor="#ffe4f4"><FOOTER><h5>&copy;2020 Heng Li Ming_1874538</FOOTER></TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>
